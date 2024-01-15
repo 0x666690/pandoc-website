@@ -1,0 +1,303 @@
+
+:root {
+  --carousel-arrow-size: 50px;
+  --dot-size: 15px;
+  --max-page-width: 48em;
+}
+
+.line, .carousel, .carousel li, .carousel li img {
+  width: 100%;
+}
+.flex, .carousel-center, .carousel ul, .carousel-wrapper {
+  display: flex;
+}
+.carousel-center, .carousel ul {
+  align-items: center;
+  justify-content: center;
+}
+.carousel-wrapper {
+  position: relative;
+  max-width: var(--max-page-width);
+  margin: 50px;
+}
+.carousel-wrapper input {
+  display: none;
+}
+.carousel {
+  overflow: hidden;
+  border-radius: 15px;
+}
+.carousel ul {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  transition: left 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.carousel li img {
+  border-radius: 15px;
+}
+.nav-dot {
+  position: absolute;
+  cursor: pointer;
+  margin-left: -7.5px;
+  bottom: -22.5px;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  opacity: 0.5;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+.nav-dot:hover {
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+.nav-dot:active {
+  transform: scale(0.9);
+}
+
+.left-arrow, .right-arrow {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  font-weight: bolder;
+  text-shadow: 0 0 7.5px rgba(0, 0, 0, 0.7);
+  top: 50%;
+  z-index: 1;
+  opacity: 0.7;
+  margin-top: calc((calc(var(--carousel-arrow-size)) / 2));
+  height: var(--carousel-arrow-size);
+  font-size: var(--carousel-arrow-size);
+  transition: 0.2s;
+}
+.left-arrow:hover, .right-arrow:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+.left-arrow:active, .right-arrow:active {
+  transform: scale(0.9);
+}
+.left-arrow {
+  left: 15px;
+}
+.right-arrow {
+  right: 15px;
+}
+
+
+
+
+/*
+    Set up all the colors here (light mode)
+*/
+
+html, body { color: black; background-color: white; }
+a { color: purple; }
+a:visited { color: purple; }
+footer > a { color: #606060; }
+footer > a:visited { color: #606060; }
+blockquote { border-left: 2px solid #e6e6e6; color: #606060; }
+hr { background-color: #1a1a1a; }
+tbody { border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
+th { border-top: 1px solid #1a1a1a; }
+pre { background: #f0f0f0; color: #3e3e3e; }
+pre highlight { color: fuchsia; }
+
+/*
+    Dark Mode
+
+    prefers-dark-interface => Safari
+    prefers-color-scheme: dark => everything that isn't Safari
+*/
+
+@media (prefers-color-scheme: dark) or (prefers-dark-interface) {
+    html, body { color: white; background-color: rgb(35, 35, 35); }
+    a { color: rgb(247, 164, 255) }
+    a:visited { color: rgb(247, 164, 255) }
+    footer > a { color: #a6a6a6; }
+    footer > a:visited { color: #a6a6a6; }
+    blockquote { border-left: 2px solid #e6e6e6; color: #606060; }
+    hr { background-color: #1a1a1a; }
+    tbody { border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
+    th { border-top: 1px solid #1a1a1a; }
+    pre { background: #3e3e3e; color: white; }
+    pre highlight { color: rgb(247, 164, 255); }
+    
+}
+
+/* ========================================================= */
+
+.shiba-header {
+  margin-bottom: -20px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  margin-bottom: 4em;
+  text-align: center;
+}
+
+footer {
+    margin-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+body {
+    font-family: 'Berkeley Mono', 'drewtype', monospace;
+    margin: 0 auto;
+    max-width: var(--max-page-width);
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+}
+
+  @media (max-width: 600px) {
+    body {
+      font-size: 0.9em;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+    h1 {
+      font-size: 1.8em;
+    }
+  }
+  /**
+    Okay, not _all_ the colors are set up at the top...
+    But this is only for printing, so give me a break
+  */
+  @media print {
+    html {
+      background-color: white;
+    }
+    body {
+      background-color: transparent;
+      color: black;
+      font-size: 12pt;
+    }
+    p, h2, h3 {
+      orphans: 3;
+      widows: 3;
+    }
+    h2, h3, h4 {
+      page-break-after: avoid;
+    }
+  }
+  p {
+    margin: 1em 0;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.4em;
+  }
+  h5, h6 {
+    font-size: 1em;
+    font-style: italic;
+  }
+  h6 {
+    font-weight: normal;
+  }
+  ol, ul {
+    padding-left: 1.7em;
+    margin-top: 1em;
+  }
+  li > ol, li > ul {
+    margin-top: 0;
+  }
+  blockquote {
+    margin: 1em 0 1em 1.7em;
+    padding-left: 1em;
+  }
+  code {
+    font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+    font-size: medium;
+    margin: 0;
+    -webkit-hyphens: manual;
+    hyphens: manual;
+  }
+
+  pre {
+    overflow: auto;
+    padding: 1em;
+    font-size: medium;
+    border-radius: 5px;
+  }
+  pre code {
+    padding: 0;
+    overflow: visible;
+    overflow-wrap: normal;
+  }
+  .sourceCode {
+   background-color: transparent;
+   overflow: visible;
+  }
+  hr {
+    border: none;
+    height: 1px;
+    margin: 1em 0;
+  }
+  table {
+    margin: 1em 0;
+    border-collapse: collapse;
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+  table caption {
+    margin-bottom: 0.75em;
+  }
+  tbody {
+    margin-top: 0.5em;
+  }
+  th {
+    padding: 0.25em 0.5em 0.25em 0.5em;
+  }
+  td {
+    padding: 0.125em 0.5em 0.25em 0.5em;
+  }
+
+  #TOC li {
+    list-style: none;
+  }
+  #TOC ul {
+    padding-left: 1.3em;
+  }
+  #TOC > ul {
+    padding-left: 0;
+  }
+  #TOC a:not(:hover) {
+    text-decoration: none;
+  }
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  div.columns{display: flex; gap: min(4vw, 1.5em);}
+  div.column{flex: auto; overflow-x: auto;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  /* The extra [class] is a hack that increases specificity enough to
+     override a similar rule in reveal.js */
+  ul.task-list[class]{list-style: none;}
+  ul.task-list li input[type="checkbox"] {
+    font-size: inherit;
+    width: 0.8em;
+    margin: 0 0.8em 0.2em -1.6em;
+    vertical-align: middle;
+  }
+  .display.math{display: block; text-align: center; margin: 0.5rem auto;}
